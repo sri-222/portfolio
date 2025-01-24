@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .weather-container {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .weather-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .weather-container button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .weather-container button:hover {
+            background-color: #2980b9;
+        }
+
+        .weather-info {
+            margin-top: 20px;
+        }
+
+        .weather-info h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #3498db;
+        }
+
+        .weather-info p {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        .weather-info span {
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Weather Dashboard</h1>
+    <p>Get the latest weather information for your city</p>
+</header>
+
+<div class="weather-container">
+    <input type="text" id="city-input" placeholder="Enter city name" />
+    <button id="get-weather">Get Weather</button>
+
+    <div class="weather-info" id="weather-info" style="display:none;">
+        <h2>Weather in <span id="city-name">City</span></h2>
+        <p><span>Temperature:</span> <span id="temperature">--</span> °C</p>
+        <p><span>Humidity:</span> <span id="humidity">--</span>%</p>
+        <p><span>Condition:</span> <span id="condition">--</span></p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Weather Dashboard</p>
+</footer>
+
+<script>
+    const getWeatherButton = document.getElementById('get-weather');
+    const cityInput = document.getElementById('city-input');
+    const weatherInfo = document.getElementById('weather-info');
+    const cityName = document.getElementById('city-name');
+    const temperature = document.getElementById('temperature');
+    const humidity = document.getElementById('humidity');
+    const condition = document.getElementById('condition');
+
+    getWeatherButton.addEventListener('click', () => {
+        const city = cityInput.value.trim();
+
+        if (city !== "") {
+            // Simulating weather data
+            cityName.textContent = city;
+            temperature.textContent = Math.floor(Math.random() * 30) + 10;  // Simulated temperature
+            humidity.textContent = Math.floor(Math.random() * 100);  // Simulated humidity
+            condition.textContent = "Clear Sky";  // Static condition (for mockup)
+
+            weatherInfo.style.display = 'block';
+        } else {
+            alert("Please enter a valid city name!");
+        }
+    });
+</script>
+
+</body>
+</html>
